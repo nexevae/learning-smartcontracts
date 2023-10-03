@@ -1,0 +1,27 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
+
+contract CryptoInvestmentStorage {
+    // Define a mapping to hold the investments. The key is the crypto name (as a string), and the value is the amount invested.
+    mapping(string => uint256) private investments;
+
+    // Set the initial investments in the constructor.
+    constructor() {
+        investments["BTC"] = 200;
+        investments["ETH"] = 200;
+        investments["MATIC"] = 150;
+        investments["AVAX"] = 150;
+        investments["FTM"] = 300;
+        investments["TEZ"] = 100;
+    }
+
+    // Function to retrieve the investment amount for a given crypto.
+    function getInvestment(string memory cryptoName) public view returns (uint256) {
+        return investments[cryptoName];
+    }
+
+    // Function to update the investment amount for a given crypto.
+    function setInvestment(string memory cryptoName, uint256 amount) public {
+        investments[cryptoName] = amount;
+    }
+}
